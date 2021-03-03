@@ -39,7 +39,7 @@ export enum Equipment {
   chains: 'Chains',
 }
 
-export enum UnitPref {
+export enum UnitPreference {
   imperial: 'Imperial',
   metric: 'Metric',
 }
@@ -60,7 +60,7 @@ export enum HeightConversion {
 }
 
 export enum Regex {
-  email: '',
+  email: '', // Use one from RegExr with 3.6 rating - It seems good
 }
 
 export enum AppLimits {
