@@ -1,5 +1,7 @@
 # Fitness-LP
 
+WIP. Still exploring ideas.
+
 ## Using TypeScript
 
 ```typescript
