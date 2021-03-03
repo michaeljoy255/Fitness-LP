@@ -10,65 +10,65 @@ May want to consider classes for some data items. However, how would I handle it
 // CONSTANTS
 
 export enum Category {
-  arms: 'Arms',
-  back: 'Back',
-  cardio: 'Cardio',
-  chest: 'Chest',
-  compound: 'Compound',
-  core: 'Core',
-  legs: 'Legs',
-  shoulders: 'Shoulders',
-  misc: 'Miscellaneous',
-  event: 'Event',
-  upperBody: 'Upper Body',
-  lowerBody: 'Lower Body',
-  fullBody: 'Full Body',
+  arms = 'Arms',
+  back = 'Back',
+  cardio = 'Cardio',
+  chest = 'Chest',
+  compound = 'Compound',
+  core = 'Core',
+  legs = 'Legs',
+  shoulders = 'Shoulders',
+  misc = 'Miscellaneous',
+  event = 'Event',
+  upperBody = 'Upper Body',
+  lowerBody = 'Lower Body',
+  fullBody = 'Full Body',
 }
 
 export enum Equipment {
-  barbell: 'Barbell',
-  dumbbell: 'Dumbbell',
-  kettlebell: 'Kettlebell',
-  plate: 'Plate',
-  pullupBar: 'Pull-up Bar',
-  cardioMachine: 'Cardio Machine',
-  cableMachine: 'Cable Machine',
-  weightMachine: 'Weight Machine',
-  weightVest: 'Weight Vest',
-  bands: 'Resistance Bands',
-  chains: 'Chains',
+  barbell = 'Barbell',
+  dumbbell = 'Dumbbell',
+  kettlebell = 'Kettlebell',
+  plate = 'Plate',
+  pullupBar = 'Pull-up Bar',
+  cardioMachine = 'Cardio Machine',
+  cableMachine = 'Cable Machine',
+  weightMachine = 'Weight Machine',
+  weightVest = 'Weight Vest',
+  bands = 'Resistance Bands',
+  chains = 'Chains',
 }
 
 export enum UnitPreference {
-  imperial: 'Imperial',
-  metric: 'Metric',
+  imperial = 'Imperial',
+  metric = 'Metric',
 }
 
 export enum DistanceConversion {
-  kilometersToMiles: 0.621371,
-  MilesToKilometers: 1.609344,
+  kilometersToMiles = 0.621371,
+  MilesToKilometers = 1.609344,
 }
 
 export enum WeightConversion {
-  kilogramsToPounds: 2.204623,
-  poundsToKilograms: 0.453592,
+  kilogramsToPounds = 2.204623,
+  poundsToKilograms = 0.453592,
 }
 
 export enum HeightConversion {
-  centimetersToInches: 0.393701,
-  inchesToCentimeters: 2.54,
+  centimetersToInches = 0.393701,
+  inchesToCentimeters = 2.54,
 }
 
 export enum Regex {
-  email: '', // Use one from RegExr with 3.6 rating - It seems good
+  email = '', // Use one from RegExr with 3.6 rating - It seems good
 }
 
 export enum AppLimits {
-  workoutExercises: 100,
-  exerciseSets: 100,
-  name: 50,
-  description: 300,
-  note: 600,
+  workoutExercises = 100,
+  exerciseSets = 100,
+  name = 50,
+  description = 300,
+  note = 600,
 }
 
 export enum AppStorage {
@@ -77,29 +77,29 @@ export enum AppStorage {
 }
 
 export enum AppEntity {
-  exercises: 'exercises',
-  workouts: 'workouts',
-  exerciseRecords: 'exerciseRecords',
-  workoutRecords: 'workoutRecords',
-  activeExerciseRecords: 'activeExerciseRecords',
-  activeWorkoutRecords: 'activeWorkoutRecords',
-  measurementRecords: 'measurementRecords',
+  exercises = 'exercises',
+  workouts = 'workouts',
+  exerciseRecords = 'exerciseRecords',
+  workoutRecords = 'workoutRecords',
+  activeExerciseRecords = 'activeExerciseRecords',
+  activeWorkoutRecords = 'activeWorkoutRecords',
+  measurementRecords = 'measurementRecords',
 }
 
 const layout = 'Layout'
 
 export enum Layout {
-  default: 'Default' + layout,
-  activeWorkout: 'ActiveWorkout' + layout,
+  default = 'Default' + layout,
+  activeWorkout = 'ActiveWorkout' + layout,
 }
 
 const view = 'View'
 
 export enum View {
-  notFound: 'NotFound' + view,
-  login: 'Login' + view,
-  dashboard: 'Dashboard' + view,
-  activeWorkout: 'ActiveWorkout' + view,
+  notFound = 'NotFound' + view,
+  login = 'Login' + view,
+  dashboard = 'Dashboard' + view,
+  activeWorkout = 'ActiveWorkout' + view,
 }
 ```
 
