@@ -106,14 +106,14 @@ export enum View {
 ```typescript
 // INTERFACES
 
-export interface User {
+export interface IUser {
   email: string,
   birthMonth: number,
   birthYear: number,
-  height: Height,
+  height: IHeight,
 }
 
-export interface Exercise {
+export interface IExercise {
   name: string,
   description: string,
   previousRecordId: string,
@@ -126,18 +126,18 @@ export interface Exercise {
   hasDistance: boolean,
 }
 
-export interface ExerciseRecord {
+export interface IExerciseRecord {
   createdAt: string,
   note: string,
   exerciseId: string,
-  sets: ExerciseSet[],
+  sets: IExerciseSet[],
 }
 
-export interface ExerciseSet {
-  weight: Weight,
+export interface IExerciseSet {
+  weight: IWeight,
   reps: number,
   duration: number,
-  distance: Distance,
+  distance: IDistance,
 }
 
 export interface Weight {
@@ -145,31 +145,31 @@ export interface Weight {
   pounds: number,
 }
 
-export interface Distance {
+export interface IDistance {
   kilometers: number,
   miles: number,
 }
 
-export interface Height {
+export interface IHeight {
   centimeters: number,
   inches: number,
 }
 
-export interface Workout {
+export interface IWorkout {
   name: string,
   description: string,
   previousRecordId: string,
   exerciseIds: string[],
 }
 
-export interface WorkoutRecord {
+export interface IWorkoutRecord {
   createdAt: string,
   note: string,
   duration: number,
   workoutId: string,
 }
 
-export interface MeasurementRecord {
+export interface IMeasurementRecord {
   createdAt: string,
   note: string,
   bodyWeight: number,
@@ -182,5 +182,25 @@ export interface MeasurementRecord {
   waist: number,
   thighs: number,
   calves: number,
+}
+```
+
+```typescript
+// Dependency Injection
+
+interface IMyComponentDependencies {
+  databaseService: IDatabaseService
+  storeService: IStoreService
+}
+
+// Figure out how all this has to work!
+const dependencies = {
+  databaseService: databaseThing(),
+  storeService: storeThing(),
+}
+
+const myComponent({ dependencies: IMyComponentDependencies }) {
+  dependencies.databaseService.doSomething()
+  dependencies.storeService.doSomething()
 }
 ```
