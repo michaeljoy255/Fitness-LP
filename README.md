@@ -204,3 +204,25 @@ const myComponent({ dependencies: IMyComponentDependencies }) {
   dependencies.storeService.doSomething()
 }
 ```
+
+```typescript
+// Interfaces using functions!?
+
+interface IDatabase {
+  getExercises(): Exercise[],
+  getWorkouts(): Workout[],
+  getActiveExercises(): ExerciseRecord[],
+  getActiveWorkouts(): WorkoutRecord[],
+  getMeasurementRecords(): MeasurementRecord[],
+  updateExercises(): null,
+  updateWorkouts(): null,
+  updateActiveExercises(): null,
+  updateActiveWorkouts(): null,
+  updateMeasurementRecords(): null,
+  deleteExercises(): null,
+  deleteWorkouts(): null,
+  deleteActiveExercises(): null,
+  deleteActiveWorkouts(): null,
+  deleteMeasurementRecords(): null,
+}
+```
