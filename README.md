@@ -104,19 +104,36 @@ export enum View {
 ```
 
 ```typescript
-// INTERFACES
+// Interal data interfaces
 
-export interface IUser {
+export interface IId {
+  id: string
+}
+
+export interface ITimestamps {
+  createdAt: string,
+  updatedAt: string,
+  deletedAt: string,
+}
+
+export interface IRecord extends ITimestamps {
+  note: string,
+}
+
+export interface IDescriptors {
+  name: string,
+  description: string,
+  previousRecord: string,
+}
+
+export interface IUser extends IId, ITimestamps {
   email: string,
   birthMonth: number,
   birthYear: number,
   height: IHeight,
 }
 
-export interface IExercise {
-  name: string,
-  description: string,
-  previousRecordId: string,
+export interface IExercise extends IId, IDescriptors, ITimestamps {
   category: Category,
   equipment: Equipment[],
   hasSets: boolean,
@@ -126,11 +143,8 @@ export interface IExercise {
   hasDistance: boolean,
 }
 
-export interface IExerciseRecord {
-  createdAt: string,
-  note: string,
-  exerciseId: string,
-  sets: IExerciseSet[],
+export interface IWorkout extends IId, IDescriptors, ITimestamps  {
+  exerciseIds: string[],
 }
 
 export interface IExerciseSet {
@@ -140,7 +154,30 @@ export interface IExerciseSet {
   distance: IDistance,
 }
 
-export interface Weight {
+export interface IExerciseRecord extends IId, IRecord {
+  exerciseId: string,
+  sets: IExerciseSet[],
+}
+
+export interface IWorkoutRecord extends IId, IRecord {
+  duration: number,
+  workoutId: string,
+}
+
+export interface IMeasurementRecord extends IId, IRecord {
+  bodyWeight: number,
+  bodyFat: number,
+  neck: number,
+  shoulders: number,
+  chest: number,
+  biceps: number,
+  forearms: number,
+  waist: number,
+  thighs: number,
+  calves: number,
+}
+
+export interface IWeight {
   kilograms: number,
   pounds: number,
 }
@@ -153,35 +190,6 @@ export interface IDistance {
 export interface IHeight {
   centimeters: number,
   inches: number,
-}
-
-export interface IWorkout {
-  name: string,
-  description: string,
-  previousRecordId: string,
-  exerciseIds: string[],
-}
-
-export interface IWorkoutRecord {
-  createdAt: string,
-  note: string,
-  duration: number,
-  workoutId: string,
-}
-
-export interface IMeasurementRecord {
-  createdAt: string,
-  note: string,
-  bodyWeight: number,
-  bodyFat: number,
-  neck: number,
-  shoulders: number,
-  chest: number,
-  biceps: number,
-  forearms: number,
-  waist: number,
-  thighs: number,
-  calves: number,
 }
 ```
 
