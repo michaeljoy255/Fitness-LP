@@ -1,4 +1,34 @@
-# Fitness-LP
+# fitness-lp
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Fitness-LP
 
 A good exploration of how the data would be structured in the app below.
 
@@ -60,20 +90,22 @@ export enum HeightConversion {
 }
 
 export enum Regex {
-  email = '', // Use one from RegExr with 3.6 rating - It seems good
+  email = '', // Use simple email regexes
 }
 
 export enum AppLimits {
-  workoutExercises = 100,
-  exerciseSets = 100,
-  name = 50,
-  description = 300,
-  note = 600,
+  maxWorkoutExercises = 100,
+  maxSets = 100,
+  maxRounds = 100,
+  maxNameLength = 50,
+  maxDescriptionLength = 300,
+  maxNoteLength = 300,
 }
 
 export enum AppStorage {
   session,
   local,
+  cloud,
 }
 
 export enum AppEntity {
@@ -104,20 +136,26 @@ export enum View {
 ```
 
 ```typescript
+// -------------------------------------------------------------------------------------------------
 // Interal data interfaces
 
-export interface IId {
-  id: string
-}
-
-export interface ITimestamps {
+export interface IEntity {
+  id: string,
   createdAt: string,
   updatedAt: string,
   deletedAt: string,
+  isDeleted: boolean,
 }
 
-export interface IRecord extends ITimestamps {
+export interface INote {
   note: string,
+}
+
+export interface IUser extends IEntity {
+  email: string,
+  birthMonth: number,
+  birthYear: number,
+  height: IHeight,
 }
 
 export interface IDescriptors {
@@ -126,26 +164,29 @@ export interface IDescriptors {
   previousRecord: string,
 }
 
-export interface IUser extends IId, ITimestamps {
-  email: string,
-  birthMonth: number,
-  birthYear: number,
-  height: IHeight,
-}
-
-export interface IExercise extends IId, IDescriptors, ITimestamps {
+export interface IExercise extends IEntity, IDescriptors {
   category: Category,
   equipment: Equipment[],
   hasSets: boolean,
+  // hasRounds: boolean,
   hasWeight: boolean,
   hasReps: boolean,
   hasDuration: boolean,
   hasDistance: boolean,
 }
 
-export interface IWorkout extends IId, IDescriptors, ITimestamps  {
+export interface IWorkout extends IEntity, IDescriptors {
   exerciseIds: string[],
 }
+
+export interface IExerciseRecord extends IEntity, INote {
+  exerciseId: string,
+  sets: IExerciseSet[],
+}
+
+// export interface IExerciseRound {
+//   exerciseIds: string[]
+// }
 
 export interface IExerciseSet {
   weight: IWeight,
@@ -154,17 +195,12 @@ export interface IExerciseSet {
   distance: IDistance,
 }
 
-export interface IExerciseRecord extends IId, IRecord {
-  exerciseId: string,
-  sets: IExerciseSet[],
-}
-
-export interface IWorkoutRecord extends IId, IRecord {
+export interface IWorkoutRecord extends IEntity, INote {
   duration: number,
   workoutId: string,
 }
 
-export interface IMeasurementRecord extends IId, IRecord {
+export interface IMeasurementRecord extends IEntity, INote {
   bodyWeight: number,
   bodyFat: number,
   neck: number,
@@ -191,6 +227,8 @@ export interface IHeight {
   centimeters: number,
   inches: number,
 }
+
+// -------------------------------------------------------------------------------------------------
 ```
 
 ```typescript
