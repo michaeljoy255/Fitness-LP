@@ -30,6 +30,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Fitness-LP
 
+TEST
+
 A good exploration of how the data would be structured in the app below.
 
 May want to consider classes for some data items. However, how would I handle it when it's being pulled back from the database and is just JSON without the class methods?
